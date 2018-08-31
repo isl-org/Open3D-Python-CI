@@ -2,4 +2,4 @@
 
 Testing Open3D Python package from PyPI and Conda.
 
-[![Build Status](https://travis-ci.org/yxlao/open3d-tester.svg?branch=master)](https://travis-ci.org/yxlao/open3d-tester)
+[![Build Status](https://travis-ci.org/IntelVCL/Open3D_Python_CI.svg?branch=master)](https://travis-ci.org/IntelVCL/Open3D_Python_CI)
