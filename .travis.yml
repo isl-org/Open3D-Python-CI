@@ -1,4 +1,4 @@
-language: ruby
+language: Ruby
 
 notifications:
   email:
@@ -13,49 +13,51 @@ matrix:
       dist: trusty
       sudo: true
 
-    # MacOS El Capitan
-    # Compiled using clang shipped with xcode8
+    # MacOS 10.11
     - os: osx
       osx_image: xcode8
 
-    # MacOS Sierra
-    # Compiled using clang shipped with xcode8.3
+    # MacOS 10.12
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode9.2
+
+    # MacOS 10.13
+    - os: osx
+      osx_image: xcode9.4
 
 # before_install stops immediately at non-zero exit code
 before_install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O $HOME/miniconda.sh;
+      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/miniconda.sh;
     fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/miniconda.sh;
+      wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O $HOME/miniconda.sh;
     fi
   - bash $HOME/miniconda.sh -b -p $HOME/miniconda;
   - export PATH="$HOME/miniconda/bin:$PATH";
   - conda --version
 
 script:
-  - conda create --yes --quiet -n env2.7 python=2.7
+  - conda create -y -q -n env2.7 python=2.7
   - source activate env2.7
   - which python
   - python -V
-  - conda install -c open3d-admin open3d
+  - conda install -y -q -c open3d-admin open3d
   - python -c "from open3d import *"
   - source deactivate
 
-  - conda create --yes --quiet -n env3.5 python=3.5
+  - conda create -y -q -n env3.5 python=3.5
   - source activate env3.5
   - which python
   - python -V
-  - conda install -c open3d-admin open3d
+  - conda install -y -q -c open3d-admin open3d
   - python -c "from open3d import *"
   - source deactivate
 
-  - conda create --yes --quiet -n env3.6 python=3.6
+  - conda create -y -q -n env3.6 python=3.6
   - source activate env3.6
   - which python
   - python -V
-  - conda install -c open3d-admin open3d
+  - conda install -y -q -c open3d-admin open3d
   - python -c "from open3d import *"
   - source deactivate
