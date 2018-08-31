@@ -38,26 +38,26 @@ before_install:
   - conda --version
 
 script:
-  - conda create -y -q -n env2.7 python=2.7
-  - source activate env2.7
+  - which conda
+  - conda info
   - which python
   - python -V
+  - python -c "import platform; print(platform.architecture())"
+
+  - conda create -y -q -n env2.7 python=2.7
+  - source activate env2.7
   - conda install -y -q -c open3d-admin open3d
-  - python -c "from open3d import *"
+  - python -c "from open3d import *; import open3d; print(open3d)"
   - source deactivate
 
   - conda create -y -q -n env3.5 python=3.5
   - source activate env3.5
-  - which python
-  - python -V
   - conda install -y -q -c open3d-admin open3d
-  - python -c "from open3d import *"
+  - python -c "from open3d import *; import open3d; print(open3d)"
   - source deactivate
 
   - conda create -y -q -n env3.6 python=3.6
   - source activate env3.6
-  - which python
-  - python -V
   - conda install -y -q -c open3d-admin open3d
-  - python -c "from open3d import *"
+  - python -c "from open3d import *; import open3d; print(open3d)"
   - source deactivate
