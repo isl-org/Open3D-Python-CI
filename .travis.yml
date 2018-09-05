@@ -1,4 +1,4 @@
-language: Ruby
+language: python
 
 notifications:
   email:
@@ -6,6 +6,10 @@ notifications:
     on_failure: always
 
 matrix:
+  python:
+    - "2.7"
+    - "3.5"
+    - "3.6"
 
   include:
     # Ubuntu 14.04
@@ -44,20 +48,44 @@ script:
   - python -V
   - python -c "import platform; print(platform.architecture())"
 
-  - conda create -y -q -n env2.7 python=2.7
-  - source activate env2.7
-  - conda install -y -q -c open3d-admin open3d
-  - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  # Only run Conda test once
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+      # Native Conda
+      conda create -y -q -n env2.7_conda python=2.7
+      source activate env2.7_conda
+      conda install -y -q -c open3d-admin open3d
+      python -c "from open3d import *; import open3d; print(open3d)"
+      source deactivate
 
-  - conda create -y -q -n env3.5 python=3.5
-  - source activate env3.5
-  - conda install -y -q -c open3d-admin open3d
-  - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+      conda create -y -q -n env3.5_conda python=3.5
+      source activate env3.5_conda
+      conda install -y -q -c open3d-admin open3d
+      python -c "from open3d import *; import open3d; print(open3d)"
+      source deactivate
 
-  - conda create -y -q -n env3.6 python=3.6
-  - source activate env3.6
-  - conda install -y -q -c open3d-admin open3d
-  - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+      conda create -y -q -n env3.6_conda python=3.6
+      source activate env3.6_conda
+      conda install -y -q -c open3d-admin open3d
+      python -c "from open3d import *; import open3d; print(open3d)"
+      source deactivate
+
+      # Pip in Conda
+      conda create -y -q -n env2.7_conda_pip python=2.7
+      source activate env2.7_conda_pip
+      pip install -U open3d-python
+      python -c "from open3d import *; import open3d; print(open3d)"
+      source deactivate
+
+      conda create -y -q -n env3.5_conda_pip python=3.5
+      source activate env3.5_conda_pip
+      pip install -U open3d-python
+      python -c "from open3d import *; import open3d; print(open3d)"
+      source deactivate
+
+      conda create -y -q -n env3.6_conda_pip python=3.6
+      source activate env3.6_conda_pip
+      pip install -U open3d-python
+      python -c "from open3d import *; import open3d; print(open3d)"
+      source deactivate
+    fi
+
