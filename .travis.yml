@@ -8,31 +8,34 @@ notifications:
 matrix:
 
   include:
-    # Ubuntu 14.04
-    - os: linux
-      dist: trusty
-      sudo: false
-      python: "2.7"
-    - os: linux
-      dist: trusty
-      sudo: false
-      python: "3.5"
-    - os: linux
-      dist: trusty
-      sudo: false
-      python: "3.6"
+    # # Ubuntu 14.04
+    # - os: linux
+    #   dist: trusty
+    #   sudo: false
+    #   python: "2.7"
+    # - os: linux
+    #   dist: trusty
+    #   sudo: false
+    #   python: "3.5"
+    # - os: linux
+    #   dist: trusty
+    #   sudo: false
+    #   python: "3.6"
 
     # MacOS 10.11
     - os: osx
       osx_image: xcode8
+      python: "2.7"
 
     # MacOS 10.12
     - os: osx
       osx_image: xcode9.2
+      python: "2.7"
 
     # MacOS 10.13
     - os: osx
       osx_image: xcode9.4
+      python: "2.7"
 
 # before_install stops immediately at non-zero exit code
 before_install:
