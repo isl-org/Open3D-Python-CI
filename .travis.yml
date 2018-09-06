@@ -12,7 +12,7 @@ matrix:
       env: TOXENV=py36
 
 install:
-    - ./install_python_osx.sh
+    - bash ./install_python_osx.sh
 
 script:
   - which python
