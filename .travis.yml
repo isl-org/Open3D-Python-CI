@@ -19,3 +19,8 @@ script:
   - which python
   - python -V
   - python -c "import platform; print(platform.architecture())"
+
+  - which pyenv
+  - pyenv global 3.6.5
+  - which python
+  - python -V
