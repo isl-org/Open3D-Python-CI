@@ -18,3 +18,4 @@ script:
   - which python
   - python -V
   - python -c "import platform; print(platform.architecture())"
+  - echo $TRAVIS_OS_NAME
