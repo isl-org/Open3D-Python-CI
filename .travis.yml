@@ -40,7 +40,7 @@ before_install:
 
   # Install pyenv and python distributions for MacOS
   - brew update
-  - brew install pyenv
+  - brew upgrade pyenv
   - pyenv install 3.5.6
   - pyenv install 3.6.5
   - pyenv versions
