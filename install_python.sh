@@ -4,12 +4,9 @@
 # We need to install Python manually. See
 # https://docs.travis-ci.com/user/multi-os/#python-example-unsupported-languages
 
-- echo "osname in sh" $TRAVIS_OS_NAME
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
-    # Install some custom requirements on OS X
-    # e.g. brew install pyenv-virtualenv
-    brew update
-    brew install pyenv
+
+    HOMEBREW_NO_AUTO_UPDATE=1 brew install pyenv
 
     case "${TOXENV}" in
         py35)
