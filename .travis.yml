@@ -5,11 +5,6 @@ notifications:
     on_success: never
     on_failure: always
 
-python:
-  - 2.7
-  - 3.5
-  - 3.6
-
 matrix:
 
   include:
@@ -30,17 +25,15 @@ matrix:
     # MacOS 10.11
     - os: osx
       osx_image: xcode8
-      python: "2.7"
 
     # MacOS 10.12
     - os: osx
       osx_image: xcode9.2
-      python: "2.7"
 
     # MacOS 10.13
     - os: osx
       osx_image: xcode9.4
-      python: "2.7"
+
 
 # before_install stops immediately at non-zero exit code
 before_install:
