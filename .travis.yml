@@ -39,10 +39,10 @@ before_install:
   # - conda --version
 
   # Install pyenv and python distributions for MacOS
-  HOMEBREW_NO_AUTO_UPDATE=1 brew install pyenv
-  pyenv install 2.7.15
-  pyenv install 3.5.6
-  pyenv install 3.6.5
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install pyenv
+  - pyenv install 2.7.15
+  - pyenv install 3.5.6
+  - pyenv install 3.6.5
 
 script:
   - which python
