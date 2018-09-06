@@ -1,4 +1,4 @@
-language: python
+language: ruby
 
 notifications:
   email:
@@ -13,7 +13,7 @@ matrix:
       env: TOXENV=py36
 
 install:
-    - ./install_python_osx.sh
+    - ./install_python.sh
 
 script:
   - which python
