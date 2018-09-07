@@ -47,12 +47,10 @@ before_install:
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       pyenv install 3.5.5
       pyenv install 3.6.5
+      # Any version of virtualenv is fine
+      pip install -U virtualenv
+      virtualenv --version
     fi
-
-  # Any version of virtualenv is fine
-  - which pip
-  - pip --version
-  - pip install -U virtualenv --user
 
 script:
   # - which conda
