@@ -43,6 +43,11 @@ before_install:
   - pyenv install 3.6.5
   - pyenv versions
 
+  # Any version of virtualenv would do
+  - which pip
+  - pip --version
+  - pip install virtualenv
+
 script:
   - which python
   - python -V
