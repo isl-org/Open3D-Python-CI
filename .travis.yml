@@ -54,6 +54,7 @@ before_install:
       fi
 
       # Install Python, assuming 2.7 is already avilable
+      pyenv install 2.7.15
       pyenv install 3.5.6
       pyenv install 3.6.5
 
@@ -108,7 +109,7 @@ script:
   # - source deactivate
 
   # Native Pip
-  - virtualenv env2.7_pip -p `pyenv which python2.7`
+  - virtualenv env2.7_pip -p `pyenv which python2.7.15`
   - source env2.7_pip/bin/activate
   - which python
   - which pip
@@ -116,7 +117,7 @@ script:
   - python -c "from open3d import *; import open3d; print(open3d)"
   - deactivate
 
-  - virtualenv env3.5_pip -p `pyenv which python3.5`
+  - virtualenv env3.5_pip -p `pyenv which python3.5.6`
   - source env3.5_pip/bin/activate
   - which python
   - which pip
@@ -124,7 +125,7 @@ script:
   - python -c "from open3d import *; import open3d; print(open3d)"
   - deactivate
 
-  - virtualenv env3.6_pip -p `pyenv which python3.6`
+  - virtualenv env3.6_pip -p `pyenv which python3.6.5`
   - source env3.6_pip/bin/activate
   - which python
   - which pip
