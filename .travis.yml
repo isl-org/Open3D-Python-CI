@@ -94,7 +94,7 @@ script:
   # - source deactivate
 
   # Native Pip
-  - virtualenv env2.7_pip -p `python2.7`
+  - virtualenv env2.7_pip -p python2.7
   - source env2.7_pip/bin/activate
   - which python
   - which pip
@@ -102,7 +102,7 @@ script:
   - python -c "from open3d import *; import open3d; print(open3d)"
   - deactivate
 
-  - virtualenv env3.5_pip -p `python3.5`
+  - virtualenv env3.5_pip -p python3.5
   - source env3.5_pip/bin/activate
   - which python
   - which pip
@@ -110,7 +110,7 @@ script:
   - python -c "from open3d import *; import open3d; print(open3d)"
   - deactivate
 
-  - virtualenv env3.6_pip -p `python3.6`
+  - virtualenv env3.6_pip -p python3.6
   - source env3.6_pip/bin/activate
   - which python
   - which pip
