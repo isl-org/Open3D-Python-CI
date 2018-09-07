@@ -38,7 +38,8 @@ before_install:
   # - export PATH="$HOME/miniconda/bin:$PATH";
   # - conda --version
 
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+  - |
+    if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       echo "i am mac"
     fi
 
