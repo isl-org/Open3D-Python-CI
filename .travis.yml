@@ -46,20 +46,9 @@ before_install:
   # Any version of virtualenv would do
   - which pip
   - pip --version
-  - pip install virtualenv
+  - pip install -U virtualenv
 
 script:
-  - which python
-  - python -V
-  - python -c "import platform; print(platform.architecture())"
-
-  - which pyenv
-  - which python
-  - python -V
-  - which python3
-  - python3 -V
-  - ls -alh /usr/local/bin/
-
   # - which conda
   # - conda info
   # - which python
@@ -103,3 +92,28 @@ script:
   # - pip install -U open3d-python
   # - python -c "from open3d import *; import open3d; print(open3d)"
   # - source deactivate
+
+  # Native Pip
+  - virtualenv env2.7_pip -p `python2.7`
+  - source env2.7_pip/bin/activate
+  - which python
+  - which pip
+  - pip install -U open3d-python
+  - python -c "from open3d import *; import open3d; print(open3d)"
+  - deactivate
+
+  - virtualenv env3.5_pip -p `python3.5`
+  - source env3.5_pip/bin/activate
+  - which python
+  - which pip
+  - pip install -U open3d-python
+  - python -c "from open3d import *; import open3d; print(open3d)"
+  - deactivate
+
+  - virtualenv env3.6_pip -p `python3.6`
+  - source env3.6_pip/bin/activate
+  - which python
+  - which pip
+  - pip install -U open3d-python
+  - python -c "from open3d import *; import open3d; print(open3d)"
+  - deactivate
