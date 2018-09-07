@@ -38,6 +38,10 @@ before_install:
   # - export PATH="$HOME/miniconda/bin:$PATH";
   # - conda --version
 
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      echo "i am mac"
+    fi
+
   # Install pyenv and python distributions for MacOS
   - pyenv install 3.5.5
   - pyenv install 3.6.5
