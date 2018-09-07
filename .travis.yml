@@ -6,130 +6,129 @@ notifications:
     on_failure: always
 
 matrix:
-
   include:
-    # # Ubuntu 14.04
-    # - os: linux
-    #   dist: trusty
-    #   sudo: true
-    #   addons:
-    #     apt:
-    #       sources:
-    #       - deadsnakes
+  # # Ubuntu 14.04
+  # - os: linux
+  #   dist: trusty
+  #   sudo: true
+  #   addons:
+  #     apt:
+  #       sources:
+  #       - deadsnakes
 
-    # MacOS 10.11
-    - os: osx
-      osx_image: xcode8
+  # MacOS 10.11
+  - os: osx
+    osx_image: xcode8
 
-    # MacOS 10.12
-    - os: osx
-      osx_image: xcode9.2
+  # MacOS 10.12
+  - os: osx
+    osx_image: xcode9.2
 
-    # MacOS 10.13
-    - os: osx
-      osx_image: xcode9.4
+  # MacOS 10.13
+  - os: osx
+    osx_image: xcode9.4
 
 # before_install stops immediately at non-zero exit code
 before_install:
-  # # Install Conda
-  # - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-  #     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/miniconda.sh;
-  #   fi
-  # - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-  #     wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O $HOME/miniconda.sh;
-  #   fi
-  # - bash $HOME/miniconda.sh -b -p $HOME/miniconda;
-  # - export PATH="$HOME/miniconda/bin:$PATH";
-  # - conda --version
+# # Install Conda
+# - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+#     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $HOME/miniconda.sh;
+#   fi
+# - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+#     wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O $HOME/miniconda.sh;
+#   fi
+# - bash $HOME/miniconda.sh -b -p $HOME/miniconda;
+# - export PATH="$HOME/miniconda/bin:$PATH";
+# - conda --version
 
-  # Install native Python
-  - |
-    if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      # Not all Travis MacOS image has `pyenv` installed already
-      brew update
-      if [ -x "$(command -v pyenv)" ]; then
-        brew upgrade pyenv
-      else
-        brew install pyenv
-      fi
-
-      # Install Python
-      # TODO: Python version as varaible
-      pyenv install 2.7.15
-      pyenv install 3.5.6
-      pyenv install 3.6.5
-
-      # Any version of virtualenv is fine
-      pip install -U virtualenv
-      virtualenv --version
+# Install native Python
+- |
+  if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+    # Not all Travis MacOS image has `pyenv` installed already
+    brew update
+    if [ -x "$(command -v pyenv)" ]; then
+      brew upgrade pyenv
+    else
+      brew install pyenv
     fi
 
+    # Install Python
+    # TODO: Python version as varaible
+    pyenv install 2.7.15
+    pyenv install 3.5.6
+    pyenv install 3.6.5
+
+    # Any version of virtualenv is fine
+    pip install -U virtualenv
+    virtualenv --version
+  fi
+
 script:
-  # - which conda
-  # - conda info
-  # - which python
-  # - python -V
-  # - python -c "import platform; print(platform.architecture())"
+# - which conda
+# - conda info
+# - which python
+# - python -V
+# - python -c "import platform; print(platform.architecture())"
 
-  # # Native Conda
-  # - conda create -y -q -n env2.7_conda python=2.7
-  # - source activate env2.7_conda
-  # - conda install -y -q -c open3d-admin open3d
-  # - python -c "from open3d import *; import open3d; print(open3d)"
-  # - source deactivate
+# # Native Conda
+# - conda create -y -q -n env2.7_conda python=2.7
+# - source activate env2.7_conda
+# - conda install -y -q -c open3d-admin open3d
+# - python -c "from open3d import *; import open3d; print(open3d)"
+# - source deactivate
 
-  # - conda create -y -q -n env3.5_conda python=3.5
-  # - source activate env3.5_conda
-  # - conda install -y -q -c open3d-admin open3d
-  # - python -c "from open3d import *; import open3d; print(open3d)"
-  # - source deactivate
+# - conda create -y -q -n env3.5_conda python=3.5
+# - source activate env3.5_conda
+# - conda install -y -q -c open3d-admin open3d
+# - python -c "from open3d import *; import open3d; print(open3d)"
+# - source deactivate
 
-  # - conda create -y -q -n env3.6_conda python=3.6
-  # - source activate env3.6_conda
-  # - conda install -y -q -c open3d-admin open3d
-  # - python -c "from open3d import *; import open3d; print(open3d)"
-  # - source deactivate
+# - conda create -y -q -n env3.6_conda python=3.6
+# - source activate env3.6_conda
+# - conda install -y -q -c open3d-admin open3d
+# - python -c "from open3d import *; import open3d; print(open3d)"
+# - source deactivate
 
-  # # Pip in Conda
-  # - conda create -y -q -n env2.7_conda_pip python=2.7
-  # - source activate env2.7_conda_pip
-  # - pip install -U open3d-python
-  # - python -c "from open3d import *; import open3d; print(open3d)"
-  # - source deactivate
+# # Pip in Conda
+# - conda create -y -q -n env2.7_conda_pip python=2.7
+# - source activate env2.7_conda_pip
+# - pip install -U open3d-python
+# - python -c "from open3d import *; import open3d; print(open3d)"
+# - source deactivate
 
-  # - conda create -y -q -n env3.5_conda_pip python=3.5
-  # - source activate env3.5_conda_pip
-  # - pip install -U open3d-python
-  # - python -c "from open3d import *; import open3d; print(open3d)"
-  # - source deactivate
+# - conda create -y -q -n env3.5_conda_pip python=3.5
+# - source activate env3.5_conda_pip
+# - pip install -U open3d-python
+# - python -c "from open3d import *; import open3d; print(open3d)"
+# - source deactivate
 
-  # - conda create -y -q -n env3.6_conda_pip python=3.6
-  # - source activate env3.6_conda_pip
-  # - pip install -U open3d-python
-  # - python -c "from open3d import *; import open3d; print(open3d)"
-  # - source deactivate
+# - conda create -y -q -n env3.6_conda_pip python=3.6
+# - source activate env3.6_conda_pip
+# - pip install -U open3d-python
+# - python -c "from open3d import *; import open3d; print(open3d)"
+# - source deactivate
 
-  # Native Pip
-  - virtualenv env2.7_pip -p `pyenv which python2.7.15`
-  - source env2.7_pip/bin/activate
-  - which python
-  - which pip
-  - pip install -U open3d-python
-  - python -c "from open3d import *; import open3d; print(open3d)"
-  - deactivate
+# Native Pip
+- virtualenv env2.7_pip -p `pyenv which python2.7.15`
+- source env2.7_pip/bin/activate
+- which python
+- which pip
+- pip install -U open3d-python
+- python -c "from open3d import *; import open3d; print(open3d)"
+- deactivate
 
-  - virtualenv env3.5_pip -p `pyenv which python3.5.6`
-  - source env3.5_pip/bin/activate
-  - which python
-  - which pip
-  - pip install -U open3d-python
-  - python -c "from open3d import *; import open3d; print(open3d)"
-  - deactivate
+- virtualenv env3.5_pip -p `pyenv which python3.5.6`
+- source env3.5_pip/bin/activate
+- which python
+- which pip
+- pip install -U open3d-python
+- python -c "from open3d import *; import open3d; print(open3d)"
+- deactivate
 
-  - virtualenv env3.6_pip -p `pyenv which python3.6.5`
-  - source env3.6_pip/bin/activate
-  - which python
-  - which pip
-  - pip install -U open3d-python
-  - python -c "from open3d import *; import open3d; print(open3d)"
-  - deactivate
+- virtualenv env3.6_pip -p `pyenv which python3.6.5`
+- source env3.6_pip/bin/activate
+- which python
+- which pip
+- pip install -U open3d-python
+- python -c "from open3d import *; import open3d; print(open3d)"
+- deactivate
