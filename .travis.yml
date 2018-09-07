@@ -45,8 +45,18 @@ before_install:
   # Install native Python
   - |
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      pyenv install 3.5.5
+      # Not all Travis MacOS image has `pyenv` installed already
+      brew update
+      if [ -x "$(command -v pyenv)" ]; then
+        brew upgrade pyenv
+      else
+        brew install pyenv
+      fi
+
+      # Install Python, assuming 2.7 is already avilable
+      pyenv install 3.5.6
       pyenv install 3.6.5
+
       # Any version of virtualenv is fine
       pip install -U virtualenv
       virtualenv --version
