@@ -1,6 +1,6 @@
 # open3d-tester
 
-Version: 0.3.0
+Version: 0.4.0
 
 Testing Open3D Python package from PyPI and Conda.
 
