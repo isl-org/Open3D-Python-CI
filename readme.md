@@ -15,5 +15,5 @@ conda install -c open3d-admin open3d
 pip install open3d-python
 ```
 
-[![Build Status](https://travis-ci.org/IntelVCL/Open3D_Python_CI.svg?branch=master)](https://travis-ci.org/IntelVCL/Open3D_Python_CI)
+[![Build Status](https://travis-ci.org/intel-isl/Open3D-Python-CI.svg?branch=master)](https://travis-ci.org/intel-isl/Open3D-Python-CI)
 [![Build status](https://ci.appveyor.com/api/projects/status/hfy3j1a91qupr64l?svg=true)](https://ci.appveyor.com/project/yxlao/open3d-python-ci)
