@@ -31,8 +31,8 @@ before_install:
 
 script:
   - which conda
-  - source $(conda info --root)/etc/profile.d/conda.sh
   - conda init bash
+  - source $(conda info --root)/etc/profile.d/conda.sh
   - conda info
   - which python
   - python -V
@@ -41,7 +41,7 @@ script:
   # Native Conda
   - conda create -y -q -n env3.5_conda python=3.5
   - conda activate env3.5_conda
-  - conda install -y -q -c open3d-admin open3d
+  - conda install --debug -y -q -c open3d-admin open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
   - conda deactivate
 
