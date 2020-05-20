@@ -1,4 +1,4 @@
-language: Python
+language: Ruby
 
 notifications:
   email:
@@ -38,51 +38,51 @@ script:
 
   # Native Conda
   - conda create -y -q -n env3.5_conda python=3.5
-  - source activate env3.5_conda
+  - conda activate env3.5_conda
   - conda install -y -q -c open3d-admin open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
   - conda create -y -q -n env3.6_conda python=3.6
-  - source activate env3.6_conda
+  - conda activate env3.6_conda
   - conda install -y -q -c open3d-admin open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
   - conda create -y -q -n env3.7_conda python=3.7
-  - source activate env3.7_conda
+  - conda activate env3.7_conda
   - conda install -y -q -c open3d-admin open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
   - conda create -y -q -n env3.8_conda python=3.8
-  - source activate env3.8_conda
+  - conda activate env3.8_conda
   - conda install -y -q -c open3d-admin open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
   # Pip in Conda
   - conda create -y -q -n env3.5_conda_pip python=3.5
-  - source activate env3.5_conda_pip
+  - conda activate env3.5_conda_pip
   - pip install -U open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
   - conda create -y -q -n env3.6_conda_pip python=3.6
-  - source activate env3.6_conda_pip
+  - conda activate env3.6_conda_pip
   - pip install -U open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
   - conda create -y -q -n env3.7_conda_pip python=3.7
-  - source activate env3.7_conda_pip
+  - conda activate env3.7_conda_pip
   - pip install -U open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
   - conda create -y -q -n env3.8_conda_pip python=3.8
-  - source activate env3.8_conda_pip
+  - conda activate env3.8_conda_pip
   - pip install -U open3d
   - python -c "from open3d import *; import open3d; print(open3d)"
-  - source deactivate
+  - conda deactivate
 
