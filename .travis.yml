@@ -1,6 +1,6 @@
-language: Ruby
+language: Python
 
-jobs:
+matrix:
   include:
     - os: linux
       dist: bionic
