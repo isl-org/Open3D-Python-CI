@@ -56,11 +56,11 @@ install:
 
 script:
   # Conda install
-  - conda create -y -q -n env_conda python=${PYTHON_VERSION}
-  - conda activate env_conda
-  - conda install --debug -y -q -c open3d-admin open3d
-  - python -c "from open3d import *; import open3d; print(open3d)"
-  - conda deactivate
+  # - conda create -y -q -n env_conda python=${PYTHON_VERSION}
+  # - conda activate env_conda
+  # - conda install --debug -y -q -c open3d-admin open3d
+  # - python -c "from open3d import *; import open3d; print(open3d)"
+  # - conda deactivate
 
   # Pip install
   - conda create -y -q -n env_pip python=${PYTHON_VERSION}
