@@ -1,25 +1,21 @@
 language: cpp
 
-matrix:
+jobs:
   include:
     - os: linux
       dist: bionic
-      sudo: true
       env: PYTHON_VERSION=3.5
 
     - os: linux
       dist: bionic
-      sudo: true
       env: PYTHON_VERSION=3.6
 
     - os: linux
       dist: bionic
-      sudo: true
       env: PYTHON_VERSION=3.7
 
     - os: linux
       dist: bionic
-      sudo: true
       env: PYTHON_VERSION=3.8
 
     - os: osx
